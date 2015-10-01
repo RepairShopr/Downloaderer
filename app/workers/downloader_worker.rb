@@ -7,5 +7,7 @@ class DownloaderWorker
     url = options['url']
     d = DownloadNow.new
     d.download(file_name,date,url)
+    d.cleanup_old_files
+
   end
 end

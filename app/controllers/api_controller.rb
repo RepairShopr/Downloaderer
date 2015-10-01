@@ -1,7 +1,7 @@
 class ApiController < ApplicationController
 
   def download
-    if params[:secret] == "SUPERSECRET123"
+    if params[:secret] == ENV["SECRET_PASSWORD"]
       if params[:file_name]
         new_download = {}
         new_download['file_name'] = params[:file_name]
@@ -18,7 +18,7 @@ class ApiController < ApplicationController
   end
 
   def status_check
-    if params[:secret] == "SUPERSECRET123"
+    if params[:secret] == ENV["SECRET_PASSWORD"]
       report = {}
       report['last_file_size'] = Rails.cache.fetch("last_file_size")
       report['last_file_name'] = Rails.cache.fetch("last_file_name")
