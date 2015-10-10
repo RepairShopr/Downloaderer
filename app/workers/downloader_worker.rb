@@ -1,6 +1,8 @@
 class DownloaderWorker
   include Sidekiq::Worker
 
+  sidekiq_options retry: false
+
   def perform(options={})
     file_name = options['file_name']
     date = options['date']

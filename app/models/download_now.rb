@@ -39,7 +39,7 @@ class DownloadNow
     to_delete = sorted[number_to_keep..-1].to_a
     to_delete.each do |date_file|
       puts "DELETING: #{date_file[1]}"
-      File.delete(date_file[1])
+      File.delete(date_file[1]) unless date_file[1].include?("lost")
     end
   end
 

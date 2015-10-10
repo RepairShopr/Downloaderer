@@ -1,4 +1,5 @@
 class ApiController < ApplicationController
+  protect_from_forgery except: :download
 
   def download
     if params[:secret] == ENV["SECRET_PASSWORD"]
